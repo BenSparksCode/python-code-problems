@@ -1,8 +1,9 @@
 # https://projecteuler.net/problem=7
 # What is the 10 001st prime number?
+import math 
+import time
+start_time = time.time()
 
-# Starting with first 2 primes for
-# incrementing by 2 each iteration
 primes = {1:2, 2:3}
 primeToFind = 10_001
 cnt = 2
@@ -12,6 +13,7 @@ while cnt < primeToFind:
     current += 2
     foundP = True
     for p in primes:
+        if math.sqrt(current) < primes[p]: break
         if current % primes[p] == 0:
             foundP = False
             break
@@ -21,3 +23,4 @@ while cnt < primeToFind:
 
 solution = current
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))

@@ -1,5 +1,7 @@
 # https://projecteuler.net/problem=8
 # Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+import time
+start_time = time.time()
 
 subLength = 13
 maxProd = 0
@@ -37,3 +39,4 @@ for i in range(len(line)-subLength):
 
 solution = maxProd
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))

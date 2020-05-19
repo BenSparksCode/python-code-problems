@@ -1,5 +1,7 @@
 # https://projecteuler.net/problem=4
 # Find the largest palindrome made from the product of two 3-digit numbers.
+import time
+start_time = time.time()
 
 max = 0
 
@@ -14,3 +16,4 @@ for i in range(1000):
 
 solution = max
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))

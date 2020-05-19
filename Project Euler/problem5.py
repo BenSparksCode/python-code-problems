@@ -1,5 +1,7 @@
 # https://projecteuler.net/problem=5
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+import time
+start_time = time.time()
 
 divNums = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 allPFactLists = []
@@ -34,3 +36,4 @@ for i in uniquePFactors:
 
 solution = finalNum
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))

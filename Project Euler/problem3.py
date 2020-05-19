@@ -1,5 +1,7 @@
 # https://projecteuler.net/problem=3
 # What is the largest prime factor of the number 600851475143?
+import time
+start_time = time.time()
 
 num = 600851475143
 
@@ -17,3 +19,4 @@ def primeFactors(n):
 prime_factors = primeFactors(num)
 solution = max(prime_factors)
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))

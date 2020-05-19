@@ -1,6 +1,8 @@
 # https://projecteuler.net/problem=9
 # There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 # Find the product abc.
+import time
+start_time = time.time()
 
 abcSum = 1000
 
@@ -14,3 +16,4 @@ def findPythagTrip(abcSum):
 
 solution = findPythagTrip(abcSum)
 print("SOLUTION:", solution)
+print("--- %s seconds ---" % (time.time() - start_time))
