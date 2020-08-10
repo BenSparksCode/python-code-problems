@@ -45,10 +45,6 @@ def generateNumWord(num):
         80: "eighty",
         90: "ninety"
     }
-    hundredPlus = {
-        100: "hundred",
-        1000: "thousand"
-    }
 
     digit1 = num%10 # 1, 3, 5, 9
     digit2 = (num-digit1)%100 #20, 50
