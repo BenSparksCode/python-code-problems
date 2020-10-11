@@ -59,25 +59,41 @@ def solveMinTransactions(netPositions):
     print("positives", posNets)
     print("negatives", negNets)
 
+    posNets.sort(key=lambda x:x['net'], reverse=True)
+    negNets.sort(key=lambda x:x['net'])
+
     if (len(posNets) < len(negNets)):
         shortest, longest = posNets, negNets
     else:
         shortest, longest = negNets, posNets
 
+    print("shortest", shortest)
+    print("longest", longest)
+
+    for pivIndex, pivot in enumerate(shortest, start=0):
+        for targIndex, target in enumerate(longest, start=0):
+            if pivot['net'] + target['net'] == 0:
+                # If 2 nums match
+                # TODO - generate better tx string function
+                txs.append(pivot['name']+' pays '+target['name']+str(pivot['net']))
+                shortest[pivIndex]['net'] = 0
+                longest[targIndex]['net'] = 0
     
-    
+    print(shortest, longest, txs)
+
+
+    return txs
 
 
 
-
-
-randomPeepsArr = generatePeopleSet(5, 1000)
+randomPeepsArr = generatePeopleSet(20, 5)
 print(randomPeepsArr)
 
 netPositions = compressToNet(randomPeepsArr)
 print("Net positions:\n",netPositions)
 
 
-solveMinTransactions(netPositions)
+finalAns = solveMinTransactions(netPositions)
+print(finalAns)
 
 # print("All net positions sum to 0:\n", testDataSystem(answer))
