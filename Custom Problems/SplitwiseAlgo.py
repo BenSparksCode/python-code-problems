@@ -75,7 +75,7 @@ def solveMinTransactions(netPositions):
             if pivot['net'] + target['net'] == 0:
                 # If 2 nums match
                 # TODO - generate better tx string function
-                txs.append(pivot['name']+' pays '+target['name']+str(pivot['net']))
+                txs.append(pivot['name']+' pays '+target['name']+' $'+str(pivot['net']))
                 shortest[pivIndex]['net'] = 0
                 longest[targIndex]['net'] = 0
     
