@@ -45,6 +45,25 @@ def testDataSystem(netPositions):
         sum += netPositions[i]
     return sum == 0
 
+def createTxString(name1, name2, amount):
+
+    return
+
+def optimallyMatch(positiveNets, negativeNets):
+    # array of objs = [{'name': '5', 'net': 3}, {'name': '18', 'net': 3}]
+
+    # Sort arrays in prep for matching
+    positiveNets.sort(key=lambda x:x['net'], reverse=True)
+    negativeNets.sort(key=lambda x:x['net'])
+
+    # 
+    if (len(positiveNets) < len(negativeNets)):
+        shortest, longest = posNets, negNets
+    else:
+        shortest, longest = negNets, posNets
+
+    return
+
 def solveMinTransactions(netPositions):
     posNets = []
     negNets = []
