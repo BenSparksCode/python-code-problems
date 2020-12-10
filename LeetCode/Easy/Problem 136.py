@@ -13,3 +13,11 @@ class Solution:
             if (cnts[key]==1): return key
         return
 
+# Attempt 2 - Using bit manipulation (XOR) to null out duplicates and find unique
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        a = 0
+        for i in nums:
+            a ^= i
+        return a
+
