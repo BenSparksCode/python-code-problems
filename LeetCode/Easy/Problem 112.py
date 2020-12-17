@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 
 # ATTEMPT 1 - DFS with Stack
-# TIME = O(n)
+# TIME = O(n) = O(V+E)
 # SPACE = O(n)
 
 class Solution:
@@ -27,7 +27,7 @@ class Solution:
 
 
 # ATTEMPT 2 - BFS with Queue
-# TIME = O(n)
+# TIME = O(n) = O(V+E)
 # SPACE = O(n)
 
 class Solution:
@@ -44,3 +44,14 @@ class Solution:
                 queue.append((currNode.right, netVal - currNode.right.val))
         return False
 
+# ATTEMPT 3 - Recursive traversal
+# TIME = O(n)
+# SPACE = O(n)
+
+class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root: return False
+        if root.left == None and root.right == None and root.val == sum:
+            return True
+        sum -= root.val
+        return self.hasPathSum(root.left, sum) or self.hasPathSum(root.right, sum)
