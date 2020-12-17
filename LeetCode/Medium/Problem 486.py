@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/predict-the-winner/
+# Using Minimax strategy from Game Theory: https://en.wikipedia.org/wiki/Minimax
 
 # ATTEMPT 1 - Recursive Minimax, no memo
 # TIME: O(2^n)
