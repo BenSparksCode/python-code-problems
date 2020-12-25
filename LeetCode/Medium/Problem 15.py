@@ -134,4 +134,41 @@ class Solution:
         return list(res)
 
 
+# ATTEMPT 4 - 3 pivots, base pivot increasing from left of sorted.
+# Left and right pivots converging on right side of base.
+# In-place sorting the nums list instead of new sorted object
+# Skips when pivot hits same value as before.
+# RESULT = ACCEPTED, better than 85% in both time and space
+# TIME = O(n^2) where n is length of nums
+# SPACE = O(n) 
 
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        nums.sort()
+        for i in range(len(nums)-2):
+            if nums[i] > 0: break
+            if i > 0 and nums[i-1] == nums[i]:
+                continue
+            left, right = i+1, len(nums)-1
+            if nums[right] < 0: break 
+            
+            while left < right:
+                sm = nums[i] + nums[left] + nums[right]
+                
+                if sm < 0:
+                    left += 1
+                elif sm > 0:
+                    right -= 1
+                else:
+                    res.append((nums[i], nums[left], nums[right]))
+                
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+
+                    left += 1
+                    right -= 1
+
+        return res
