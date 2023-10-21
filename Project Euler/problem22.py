@@ -7,12 +7,25 @@
 import time
 start_time = time.time()
 
+namesFileDir = "./assets/names.txt"
+totalNameScores = 0
+nameList = []
 
+def loadNameListAndSort(dir: string) -> list:
 
-# TODO
+    return []
 
+def calculateLetterScore(word: string) -> int:
 
+    return 0
 
+def calculateSumOfNameScores(names: list) -> int:
 
+    return 0
+
+nameList = loadNameListAndSort(namesFileDir)
+totalNameScores = calculateSumOfNameScores(nameList)
+
+solution = totalNameScores
 print("SOLUTION:", solution)
 print("--- %s seconds ---" % (time.time() - start_time))
