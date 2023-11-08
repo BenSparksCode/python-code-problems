@@ -6,10 +6,7 @@
 # - For loop without memoization:   ~0.628 seconds
 # - Recursion with memoization:     ~0.023 seconds
 
-import time
-start_time = time.time()
-
-# SOLUTION CODE STARTS HERE
+from index import *
 
 fibCache = {}
 
@@ -35,7 +32,8 @@ def fastFib(n: int) -> int:
         ans = fastFib(n-1) + fastFib(n-2)
         fibCache[n] = ans
         return ans
-    
+
+@timer
 def findSmallestFibOfDigits(digits: int) -> (int, int):
     index = 1
     while True:
@@ -45,14 +43,6 @@ def findSmallestFibOfDigits(digits: int) -> (int, int):
         index += 1 
 
 index, fibNum = findSmallestFibOfDigits(1000)
-print("Found at index:", index)
-print("This massive number:\n")
-print(fibNum)
-print("\n")
 
 solution = index
-
-# SOLUTION CODE ENDS HERE
-
 print("SOLUTION:", solution)
-print("--- %s seconds ---" % (time.time() - start_time))
