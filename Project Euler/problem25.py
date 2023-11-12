@@ -6,7 +6,7 @@
 # - For loop without memoization:   ~0.628 seconds
 # - Recursion with memoization:     ~0.023 seconds
 
-from index import *
+from index import timer
 
 fibCache = {}
 

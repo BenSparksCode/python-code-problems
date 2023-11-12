@@ -3,24 +3,26 @@
 # can be written as the sum of fifth powers of their digits.
 
 import functools
-import time
-start_time = time.time()
+from index import timer
 
-power = 5
-unitsToThePow = {}
-allSumPowNums = []
+@timer
+def solveProblem30() -> int:
+    power = 5
+    unitsToThePow = {}
+    allSumPowNums = []
 
-# populate unitPow5s
-for i in range(10):
-    unitsToThePow[i] = i**power
+    # populate unitPow5s
+    for i in range(10):
+        unitsToThePow[i] = i**power
 
-for i in range(10,200_000):
-    # turn num into list of digits
-    digits = [unitsToThePow[int(j)] for j in str(i)]
-    if(i == functools.reduce(
-        lambda a,b : a+b, digits
-        )): allSumPowNums.append(i)
+    for i in range(10,200_000):
+        # turn num into list of digits
+        digits = [unitsToThePow[int(j)] for j in str(i)]
+        if(i == functools.reduce(
+            lambda a,b : a+b, digits
+            )): allSumPowNums.append(i)
+        
+    return sum(allSumPowNums)
 
-solution = sum(allSumPowNums)
+solution = solveProblem30()
 print("SOLUTION:", solution)
-print("--- %s seconds ---" % (time.time() - start_time))

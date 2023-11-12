@@ -4,10 +4,7 @@
 # and adding the resulting numbers. 
 # How many Lychrel numbers are there below ten-thousand?
 
-import time
-start_time = time.time()
-
-# SOLUTION CODE STARTS HERE
+from index import timer
 
 def is_palindrome(n: int) -> bool:
     return str(n) == str(n)[::-1]
@@ -22,6 +19,7 @@ def isLychrel(n: int) -> bool:
             return False
     return True
 
+@timer
 def countLychrelNumbers(upperLimit: int) -> int:
     cnt = 0
     for i in range(upperLimit):
@@ -29,8 +27,5 @@ def countLychrelNumbers(upperLimit: int) -> int:
             cnt += 1
     return cnt
 
-# SOLUTION CODE ENDS HERE
-
 solution = countLychrelNumbers(10_000)
 print("SOLUTION:", solution)
-print("--- %s seconds ---" % (time.time() - start_time))
